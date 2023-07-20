@@ -30,5 +30,5 @@ There are 2 directories:
 - `dotenv` - to configure and separate data that is NOT supposed to be committed (environment variables)
 - `express` - Node.js framework of choice
 - `jsonwebtoken` - to create and verify JSON Web Tokens
-- `mongoose` - to connect to database on MongoDB Atlas
+- `mongoose` - for defining the data schema, for data modeling the business logic, for creating the models/the business logic layer and for connecting to the database on MongoDB Atlas
 - `nodemon` - to automatically restart Node.js whenever a change has been made to the code
