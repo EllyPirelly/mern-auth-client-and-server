@@ -13,12 +13,6 @@ There are 2 directories:
   - React.js JavaScript library for the client-side
   - Node.js JavaScript runtime environment for the server-side
 
-## Client (frontend)
-- start client with `npm start`
-
-### Dependencies
-- `react` - React.js and all of the depencencies coming with `npx create-react-app`
-
 ## Server (backend)
 - MongoDB NoSQL database
 - start client with `npm start`
@@ -32,3 +26,14 @@ There are 2 directories:
 - `jsonwebtoken` - to create and verify JSON Web Tokens
 - `mongoose` - for defining the data schema, for data modeling the business logic, for creating the models/the business logic layer and for connecting to the database on MongoDB Atlas
 - `nodemon` - to automatically restart Node.js whenever a change has been made to the code
+
+## Client (frontend)
+- start client with `npm start`
+
+### Dependencies
+- `react` - React.js and all of the depencencies coming with `npx create-react-app`
+- `react-cookie`
+- `react-router-dom` - to enable client-side routing
+- `react-toastify`
+- `axios`
+
