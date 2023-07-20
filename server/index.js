@@ -1,7 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-require('dotenv').config();
+const cookieParser = require('cookie-parser');
+const authRoute = require('./Routes/AuthRoute');
+
 const dotenv = require('dotenv');
 dotenv.config();
 // process.env gives access to .env file
@@ -20,18 +22,21 @@ mongoose
   .then(() => console.log('MongoDB is connected successfully'))
   .catch((err) => console.error(err));
 
-
 app.use(
   cors({
-    origin: ['http://localhost:4000'],
+    origin: ['http://localhost:3000'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   })
 );
 
+app.use(cookieParser());
+
 // express.json adds a body property to the request object
 // includes the parsed JSON data in request body
 app.use(express.json());
+
+app.use('/', authRoute);
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
