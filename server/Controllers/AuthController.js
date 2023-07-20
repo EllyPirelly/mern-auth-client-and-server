@@ -19,7 +19,7 @@ module.exports.Signup = async (req, res, next) => {
       return res.json({
         message: 'User already exists'
       });
-    }
+    };
 
     const user = await User.create({
       email,
@@ -31,7 +31,7 @@ module.exports.Signup = async (req, res, next) => {
     // MongoDB always assigns a new user with a unique _id
     const token = createSecretToken(user._id);
 
-    // cookie with key "token", value token
+    // cookie with key: "token", value: token
     res.cookie('token', token, {
       withCredentials: true,
       httpOnly: false,
@@ -47,7 +47,7 @@ module.exports.Signup = async (req, res, next) => {
     next();
   } catch (error) {
     console.error(error);
-  }
+  };
 };
 
 module.exports.Login = async (req, res, next) => {
@@ -60,24 +60,24 @@ module.exports.Login = async (req, res, next) => {
     if (!email || !password) {
       return res.json({
         message: 'All fields are required'
-      })
-    }
+      });
+    };
 
     const user = await User.findOne({ email });
 
     if (!user) {
       return res.json({
         message: 'Incorrect password or email'
-      })
-    }
+      });
+    };
 
     const auth = await bcrypt.compare(password, user.password);
 
     if (!auth) {
       return res.json({
         message: 'Incorrect password or email'
-      })
-    }
+      });
+    };
 
     const token = createSecretToken(user._id);
 
@@ -95,5 +95,5 @@ module.exports.Login = async (req, res, next) => {
     next();
   } catch (error) {
     console.error(error);
-  }
+  };
 };
