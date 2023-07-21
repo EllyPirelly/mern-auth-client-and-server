@@ -26,7 +26,7 @@ const Signup = () => {
 
   const handleError = (err) => {
     toast.error(err, {
-      position: 'bottom-left',
+      position: 'bottom-right',
     });
   };
 
@@ -73,8 +73,8 @@ const Signup = () => {
   };
 
   return (
-    <div className="form-container">
-      <h2>Signup</h2>
+    <div className="form-view">
+      <h2>Sign up</h2>
 
       <form onSubmit={handleSubmit}>
         <div>
@@ -113,7 +113,7 @@ const Signup = () => {
         <button type="submit">Sign up</button>
 
         <span>
-          Already have an account? <Link to={'/login'}>Login</Link>
+          Already have an account? <Link to={'/login'}>Log in</Link>
         </span>
       </form>
 

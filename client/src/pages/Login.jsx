@@ -4,6 +4,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
+
   const navigate = useNavigate();
 
   const [inputValue, setInputValue] = useState({
@@ -24,7 +25,7 @@ const Login = () => {
 
   const handleError = (err) => {
     toast.error(err, {
-      position: 'bottom-left',
+      position: 'bottom-right',
     });
   };
 
@@ -48,15 +49,12 @@ const Login = () => {
         }
       );
 
-      console.log(data);
-
       const { success, message } = data;
 
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
           navigate('/');
-          // navigate('http://localhost:3000/');
         }, 1000);
       } else {
         handleError(message);
@@ -73,8 +71,8 @@ const Login = () => {
   };
 
   return (
-    <div className="form-container">
-      <h2>Login</h2>
+    <div className="form-view">
+      <h2>Log in</h2>
 
       <form onSubmit={handleSubmit}>
         <div>
@@ -102,7 +100,7 @@ const Login = () => {
         <button type="submit">Log in</button>
 
         <span>
-          No account yet? <Link to={'/signup'}>Signup</Link>
+          No account yet? <Link to={'/signup'}>Sign up</Link>
         </span>
       </form>
 

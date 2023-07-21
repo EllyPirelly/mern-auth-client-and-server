@@ -1,18 +1,19 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Home = () => {
+
   const navigate = useNavigate();
 
-  const [cookie, removeCookie] = useCookies([]);
+  const [cookies, removeCookie] = useCookies([]);
   const [username, setUsername] = useState('');
 
   useEffect(() => {
     const verifyCookie = async () => {
-      if (!cookie.token) {
+      if (!cookies.token) {
         navigate('/login');
       };
 
@@ -29,29 +30,28 @@ const Home = () => {
 
       return status
         ? toast(`Hello ${user}`, {
-          position: 'top-right',
+          position: 'bottom-right',
         })
         : (removeCookie('token'), navigate('/login'));
     };
 
     verifyCookie();
 
-  }, [cookie, navigate, removeCookie]);
+  }, [cookies, navigate, removeCookie]);
 
   const Logout = () => {
     removeCookie('token');
-    navigate('/signup');
+    navigate('/login');
   };
 
   return (
     <>
-      <div className="home-page">
-        <h4>
-          {/* {" "} */}
-          Welcome <span>{username}</span>
-        </h4>
-
-        <button onClick={Logout}>Logout</button>
+      <div className="welcome-view">
+        <div className="welcome">
+          <h4>Welcome</h4>
+          <span>{username}</span>
+          <button onClick={Logout}>Logout</button>
+        </div>
       </div>
 
       <ToastContainer />

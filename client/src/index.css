@@ -6,51 +6,54 @@
   padding: 0;
 }
 
+/* source: https://www.csshero.org/mesher/ */
 body {
+  background-color: #afff99;
+  background-image:
+    radial-gradient(at 97% 76%, hsla(58, 90%, 73%, 1) 0px, transparent 50%),
+    radial-gradient(at 73% 57%, hsla(168, 98%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 95% 60%, hsla(109, 86%, 66%, 1) 0px, transparent 50%),
+    radial-gradient(at 54% 33%, hsla(87, 95%, 72%, 1) 0px, transparent 50%),
+    radial-gradient(at 37% 88%, hsla(203, 86%, 64%, 1) 0px, transparent 50%),
+    radial-gradient(at 12% 28%, hsla(213, 95%, 67%, 1) 0px, transparent 50%),
+    radial-gradient(at 75% 98%, hsla(189, 89%, 77%, 1) 0px, transparent 50%);
   color: #282828;
-  background: linear-gradient(90deg,
-      rgba(2, 0, 36, 1) 0%,
-      rgba(143, 187, 204, 1) 35%,
-      rgba(0, 212, 255, 1) 100%);
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
+  height: 100vh;
   line-height: 1.2;
+  width: 100vw;
 }
 
-.App {
-  max-width: 400px;
-  margin: 2rem auto 0;
-  width: 100%;
-}
-
-/* to clean up */
-.form-container {
+/* form view */
+.form-view {
   background-color: #fff;
   border-radius: 0.5rem;
-  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-  padding: 2rem 3rem;
-  width: 100%;
+  box-shadow: rgba(40, 40, 40, 0.5) 0px 5px 15px;
+  margin: 1rem;
+  padding: 1rem;
 }
 
-.form-container > h2 {
-  color: rgba(0, 212, 255, 1);
+.form-view > h2 {
+  color: #5ba3fb;
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
-.form-container > form {
+.form-view form {
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
 }
 
-.form-container div {
+.form-view div {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
 }
 
-.form-container input {
+.form-view input {
   border: none;
   border-bottom: 1px solid #808080;
   font-size: 1.1rem;
@@ -58,66 +61,104 @@ body {
   outline: none;
 }
 
-.form-container input::placeholder {
+.form-view input::placeholder {
   font-size: 0.9rem;
   font-style: italic;
 }
 
-.form-container button {
-  background-color: rgba(0, 212, 255, 1);
+.form-view button {
+  background-color: #5ba3fb;
   border: none;
   border-radius: 0.3rem;
   color: #fff;
   cursor: pointer;
   font-size: 1rem;
   padding: 0.6rem;
+  transition: ease-in 0.2s;
 }
 
-span a {
-  color: rgba(0, 212, 255, 1);
+.form-view button:hover {
+  background-color: #04499d;
+}
+
+.form-view span a {
+  color: #5ba3fb;
+}
+
+.form-view span a:hover {
   text-decoration: none;
 }
 
-.home-page {
-  height: 100vh;
-  width: 100vw;
-  background: #000;
-  color: white;
-  display: flex;
-  justify-content: center;
+/* welcome view */
+.welcome-view {
   align-items: center;
-  text-transform: uppercase;
-  font-size: 3rem;
+  background-color: #012147;
+  height: 100vh;
+  padding: 1rem;
+  width: 100vw;
+}
+
+.welcome {
+  align-items: center;
+  background-color: #afff99;
+  background-image:
+    radial-gradient(at 97% 76%, hsla(58, 90%, 73%, 1) 0px, transparent 50%),
+    radial-gradient(at 73% 57%, hsla(168, 98%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 95% 60%, hsla(109, 86%, 66%, 1) 0px, transparent 50%),
+    radial-gradient(at 54% 33%, hsla(87, 95%, 72%, 1) 0px, transparent 50%),
+    radial-gradient(at 37% 88%, hsla(203, 86%, 64%, 1) 0px, transparent 50%),
+    radial-gradient(at 12% 28%, hsla(213, 95%, 67%, 1) 0px, transparent 50%),
+    radial-gradient(at 75% 98%, hsla(189, 89%, 77%, 1) 0px, transparent 50%);
+  border-radius: 0.5rem;
+  box-shadow: rgba(40, 40, 40, 0.5) 0px 5px 15px;
+  display: flex;
   flex-direction: column;
+  font-size: 2rem;
   gap: 1rem;
+  padding: 1rem;
 }
 
-.home-page span {
-  color: rgba(0, 212, 255, 1);
+.welcome h4 {
+  color: #012147;
+  font-size: 2rem;
 }
 
-.home-page button {
-  background-color: rgb(27, 73, 83);
+.welcome span {
+  background-color: #fff;
+  border-radius: 0.3rem;
+  color: #012147;
+  font-size: 1.5rem;
+  overflow-wrap: break-word;
+  padding: 0.75rem;
+  max-width: 100%;
+}
+
+.welcome-view button {
+  background-color: #012147;
   color: #fff;
   cursor: pointer;
-  padding: 1rem 3rem;
-  font-size: 2rem;
-  border-radius: 2rem;
-  transition: ease-in 0.3s;
   border: none;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  padding: 0.6rem;
+  margin-top: 2rem;
+  transition: ease-in 0.2s;
 }
 
-.home-page button:hover {
-  background-color: rgba(0, 212, 255, 1);
+.welcome-view button:hover {
+  background-color: #5ba3fb;
 }
 
-@media only screen and (max-width: 1200px) {
-  .home-page {
-    font-size: 1.5rem;
+@media screen and (min-width: 480px) {
+
+  .form-view,
+  .welcome {
+    margin: 2rem auto 0;
+    max-width: 400px;
+    width: 100%;
   }
 
-  .home-page button {
-    padding: 0.6rem 1rem;
-    font-size: 1.5rem;
+  .form-view {
+    padding: 2rem 3rem;
   }
 }
