@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const jwt = require('jsonwebtoken');
 
+// check if user has access to route by checking if token match
 module.exports.userVerification = (req, res) => {
   const token = req.cookies.token;
 
